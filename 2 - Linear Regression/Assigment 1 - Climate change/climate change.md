@@ -68,3 +68,85 @@ summary(model1)$r.squared
 [1] 0.743994
 ```
 
+
+1.2 - Significant variables of model1
+========================================================
+
+Let's see which variables are significant in this first model.
+We will consider a variable signficant only if the p-value is below 0.05.
+
+
+```r
+significant_pValues <- summary(model1)$coef[,"Pr(>|t|)"] <= 0.05
+```
+
+
+```
+            significant_pValues
+(Intercept)                TRUE
+MEI                        TRUE
+CO2                        TRUE
+CH4                       FALSE
+N2O                        TRUE
+CFC.11                     TRUE
+CFC.12                     TRUE
+TSI                        TRUE
+Aerosols                   TRUE
+```
+
+2.1 - (Contradiction in the data)
+========================================================
+
+...
+
+2.2.1 - Correlation
+========================================================
+
+Which variables is N2O highly correlated with (absolute correlation greater than 0.7)?
+
+
+```r
+cor(Train)["N2O"]
+```
+
+
+```
+         cor.Train.....N2O.....0.7
+Year                          TRUE
+Month                        FALSE
+MEI                          FALSE
+CO2                           TRUE
+CH4                           TRUE
+N2O                           TRUE
+CFC.11                       FALSE
+CFC.12                        TRUE
+TSI                          FALSE
+Aerosols                     FALSE
+Temp                          TRUE
+```
+
+2.2.2 - Correlation
+========================================================
+
+Which of the following independent variables is CFC.11 highly correlated with?
+
+
+```r
+cor(Train)["CFC.11"]
+```
+
+
+```
+         cor.Train.....CFC.11.....0.7
+Year                            FALSE
+Month                           FALSE
+MEI                             FALSE
+CO2                             FALSE
+CH4                              TRUE
+N2O                             FALSE
+CFC.11                           TRUE
+CFC.12                           TRUE
+TSI                             FALSE
+Aerosols                        FALSE
+Temp                            FALSE
+```

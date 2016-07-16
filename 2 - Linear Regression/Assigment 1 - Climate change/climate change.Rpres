@@ -56,3 +56,51 @@ summary(model1)$r.squared
 
 ```
 
+
+1.2 - Significant variables of model1
+========================================================
+
+Let's see which variables are significant in this first model.
+We will consider a variable signficant only if the p-value is below 0.05.
+
+```{r}
+significant_pValues <- summary(model1)$coef[,"Pr(>|t|)"] <= 0.05
+
+```
+
+```{r echo=FALSE}
+data.frame(significant_pValues)
+```
+
+2.1 - (Contradiction in the data)
+========================================================
+
+...
+
+2.2.1 - Correlation
+========================================================
+
+Which variables is N2O highly correlated with (absolute correlation greater than 0.7)?
+
+```{r eval=FALSE}
+cor(Train)["N2O"]
+
+```
+
+```{r echo=FALSE}
+data.frame(cor(Train)[,"N2O"]>0.7)
+```
+
+2.2.2 - Correlation
+========================================================
+
+Which of the following independent variables is CFC.11 highly correlated with?
+
+```{r eval=FALSE}
+cor(Train)["CFC.11"]
+
+```
+
+```{r echo=FALSE}
+data.frame(cor(Train)[,"CFC.11"]>0.7)
+```
