@@ -1,0 +1,58 @@
+climate change Assigment
+========================================================
+author: Mehdi Houacine
+date: 16/07/2016
+
+1.1.1 Read the data
+========================================================
+
+Let's read the dataset climate_change.csv into R and see its structure.
+
+```{r echo=FALSE}
+clim <- read.csv("climate_change.csv")
+
+```
+
+```{r echo=FALSE}
+str(clim)
+
+```
+
+
+
+1.1.2 - Dataset split
+========================================================
+
+Let's split the data into a training set, consisting of all the observations up to and including 2006, and a testing set consisting of the remaining years.
+
+```{r}
+Train <- subset(clim, Year <= 2006)
+Test <- subset(clim, Year > 2006)
+
+```
+
+```{r echo=FALSE}
+sprintf("The dataset clim contains %d obs., the train set contains %d obs and the test set contains %d obs.", nrow(clim), nrow(Train), nrow(Test))
+
+```
+
+
+
+1.1.3 - Dataset split
+========================================================
+
+Next, we will build a linear regression model to predict the dependent variable Temp, using MEI, CO2, CH4, N2O, CFC.11, CFC.12, TSI, and Aerosols as independent variables (*Year and Month should not be used in the model*). We will then use the training set to build the model.
+
+```{r}
+model1 = lm(Temp ~ MEI + CO2 + CH4 + N2O + CFC.11 + CFC.12 + TSI + Aerosols, data=clim)
+
+```
+
+
+Here is the model R2 (the "Multiple R-squared" value):
+
+```{r}
+summary(model1)$r.squared
+
+```
+
