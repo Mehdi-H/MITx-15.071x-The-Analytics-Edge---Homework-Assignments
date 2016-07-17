@@ -60,3 +60,4 @@ vignettes/*.pdf
 
 ### Git ###
 *.orig
+.Rproj.user

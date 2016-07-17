@@ -1,0 +1,60 @@
+Reading Test Scores Assignment
+========================================================
+author: Mehdi Houacine
+date: 17/072016
+
+1.1 Dataset Size
+========================================================
+
+
+Let's load the training and testing sets.
+
+```{r}
+pisaTrain <- read.csv("pisa2009train.csv")
+pisaTest <- read.csv("pisa2009test.csv")
+
+```
+
+```{r echo=F}
+sprintf("There are %d students in the training set.", nrow(pisaTrain))
+```
+
+1.2 Summarizing the dataset
+========================================================
+
+What is the average reading test score of males ?
+
+```{r}
+tapply(pisaTrain$readingScore, pisaTrain$male, mean)
+```
+
+```{r echo=F}
+sexScores <- tapply(pisaTrain$readingScore, pisaTrain$male, mean)
+sprintf("The average reading score for males is %f and for females is %f.", sexScores[2], sexScores[1])
+```
+
+1.3 - Locating missing values
+=============================
+
+```{r eval=F}
+!is.na(summary(pisaTrain)[7,])
+```
+
+We can read which variables have missing values from this command or summary(pisaTrain). Because most variables are collected from study participants via survey, it is expected that most questions will have at least one missing value.
+
+Only 5 of the variables does not have missing data.
+
+1.4 - Removing missing values
+=============================
+
+```{r}
+pisaTrain = na.omit(pisaTrain)
+pisaTest = na.omit(pisaTest)
+
+```
+
+```{r echo=F}
+sprintf("Now that we have remove observations with missing values, the training set contains %d remaining obs. and the testing set contains %d remaining obs.", nrow(pisaTrain), nrow(pisaTest))
+```
+
+
