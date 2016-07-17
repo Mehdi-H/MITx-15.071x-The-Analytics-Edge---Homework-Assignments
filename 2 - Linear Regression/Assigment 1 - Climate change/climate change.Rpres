@@ -1,4 +1,4 @@
-climate change Assigment
+Climate Change Assigment
 ========================================================
 author: Mehdi Houacine
 date: 16/07/2016
@@ -104,3 +104,72 @@ cor(Train)["CFC.11"]
 ```{r echo=FALSE}
 data.frame(cor(Train)[,"CFC.11"]>0.7)
 ```
+
+3.1 - Simplified Model
+========================================================
+
+Given that the correlations are so high, let us focus on the N2O variable and build a model with only MEI, TSI, Aerosols and N2O as independent variables.
+
+```{r}
+model2 <- lm(Temp ~ N2O + MEI + TSI + Aerosols, data=Train)
+
+```
+
+```{r echo=FALSE}
+sprintf("In this reduced model, the coefficient of N2O is %f. It was %f in the previous model1.",summary(model2)$coef["N2O", "Estimate"], summary(model1)$coef["N2O", "Estimate"] )
+
+sprintf("The R^2 of model2 is %f. It was %f in model1.", summary(model2)$r.squared, summary(model1)$r.squared)
+
+```
+
+3.2 - Simplified Model - Explanation
+========================================================
+
+
+We have observed that, for this problem, when we remove many variables the sign of N2O flips.
+
+The model has not lost a lot of explanatory power (the model R2 is 0.7261 compared to 0.7509 previously) despite removing many variables. 
+
+As discussed in lecture, this type of behavior is typical when building a model where many of the independent variables are highly correlated with each other. 
+
+In this particular problem many of the variables (CO2, CH4, N2O, CFC.11 and CFC.12) are highly correlated, since they are all driven by human industrial development.
+
+4.1.1 - Akaike Information Criterion
+========================================================
+
+Let's try the AIC trade-off with the R step() function.
+
+```{r echo=FALSE}
+fullModel <- lm(Temp ~ ., data=Train)
+simpleModel <- step(fullModel)
+
+```
+
+4.1.2 - Akaike Information Criterion
+========================================================
+
+```{r echo=FALSE}
+sprintf("The R^2 of the newly simplified model is %f.", summary(simpleModel)$r.squared)
+```
+
+The CH4 has been removed now.
+
+5.1 - Test on unseen data
+========================================================
+
+Let's try to calculate temperature predictions for the testing data set, using the predict function.
+
+```{r}
+TempPrediction <- predict(simpleModel, newdata=Test)
+SSE = sum((TempPrediction - Test$Temp)^2)
+SST = sum( (mean(Train$Temp) - Test$Temp)^2)
+OutOfSampleR2 <- 1 - SSE/SST
+
+```
+
+
+```{r echo="FALSE"}
+sprintf("The R2 on the test set is %f.", OutOfSampleR2)
+
+```
+
