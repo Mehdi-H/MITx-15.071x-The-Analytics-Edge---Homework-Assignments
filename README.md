@@ -19,11 +19,12 @@ DONE.
 ## Unit 2: Linear Regression
 
 [In progress.](2 - Linear Regression "Path to Linear regression assignment")
-Climate Change: DONE.
-Reading Test Scores: In progress.
+Done.
 
 ------
 ## Unit 3: Logistic Regression
+In progress.
+Assignment: Predictiong the popularity of Music Records.
 
 ------
 ## Unit 4: Trees

@@ -1,4 +1,7 @@
 
+# All the data files
+*.csv
+
 # Created by https://www.gitignore.io/api/ipythonnotebook,python,r,windows,linux,git
 
 ### IPythonNotebook ###
