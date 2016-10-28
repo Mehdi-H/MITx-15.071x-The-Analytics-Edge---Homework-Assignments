@@ -18,7 +18,6 @@ DONE.
 -----
 ## Unit 2: Linear Regression
 
-[In progress.](2 - Linear Regression "Path to Linear regression assignment")
 Done.
 
 ------
