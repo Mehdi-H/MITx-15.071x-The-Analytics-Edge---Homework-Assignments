@@ -23,7 +23,7 @@ Done.
 ------
 ## Unit 3: Logistic Regression
 In progress.
-Assignment: Predictiong the popularity of Music Records.
+Assignment 2: Predicting parole violators.
 
 ------
 ## Unit 4: Trees
