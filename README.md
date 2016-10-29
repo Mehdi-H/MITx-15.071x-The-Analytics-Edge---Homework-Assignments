@@ -23,7 +23,7 @@ Done.
 ------
 ## Unit 3: Logistic Regression
 In progress.
-Assignment 2: Predicting parole violators.
+Assignment 3: Predicting loan repayment.
 
 ------
 ## Unit 4: Trees
