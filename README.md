@@ -44,7 +44,7 @@ TODO.
 ## Unit 7: Visualization
 
 In progress.
-Attending the analytical policeman.
+FBI's Heatmap of murders in the United States.
 
 -----
 ## Unit 8: Linear Optimization
