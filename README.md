@@ -22,13 +22,13 @@ Done.
 
 ------
 ## Unit 3: Logistic Regression
-In progress.
-Assignment 3: Predicting loan repayment.
+Done
 
 ------
 ## Unit 4: Trees
 
-TODO.
+In Pause.
+Two tests to do before first assignment.
 
 -----
 ## Unit 5: Text Analytics
@@ -43,7 +43,8 @@ TODO.
 -----
 ## Unit 7: Visualization
 
-TODO.
+In progress.
+Attending the analytical policeman.
 
 -----
 ## Unit 8: Linear Optimization
